@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>202002529 이어진 HW1</title>
+    <!-- Black Han Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 본 페이지의 제목을 나타냄 -->
+        <h1 id="first">나의 일지</h1>
+        
+        <div class="row" id="second">
+            <!-- 일지 작성을 시작하기 위한 버튼 : 일지 작성하기 -->
+            <div class="col-6">
+                <input type="button" value="일지 작성하기" id="writeButton">
+            </div>
+    
+            <!-- 일지 분류 정보를 나타내는 체크 박스들 : 할일, 회의, 아이디어, 쇼핑목록 -->
+            <div class="col-6">
+                <input type="checkbox" id="todo" name="todo" value="todo" checked>
+                <label for="todo">할일</label>
+                <input type="checkbox" id="meeting" name="meeting" value="meeting" checked>
+                <label for="meeting">회의</label>
+                <input type="checkbox" id="idea" name="idea" value="idea" checked>
+                <label for="idea">아이디어</label>
+                <input type="checkbox" id="shopping" name="shopping" value="shopping" checked>
+                <label for="shopping">쇼핑목록</label>
+            </div>
+        </div> <!-- id = second -->
+
+        <!-- 일지 작성하기를 클릭했을 때
+        화면 크기 >= 992px 일 때 3-1 : 3-2 비율 = 3 : 1
+        화면 크기 >= 576px 일 때 3-1 : 3-2 비율 = 1 : 1 -->
+        <div class="row" id="third">
+            <!-- 달력 -->
+            <div class="col-lg-9 col-sm-12" id="calendar">
+                <table>
+                    <tr>
+                        <th>SUN</th><th>MON</th><th>TUE</th><th>WED</th>
+                        <th>THU</th><th>FRI</th><th>SAT</th>
+                    </tr>   
+                    <tr><td id="t1"></td><td id="t2"></td><td id="t3"></td><td id="t4"></td>
+                        <td id="t5"></td><td id="t6"></td><td id="t7"></td>
+                    </tr>
+                    <tr>
+                        <td id="t8"></td><td id="t9"></td><td id="t10"></td><td id="t11"></td>
+                        <td id="t12"></td><td id="t13"></td><td id="t14"></td>
+                    </tr>
+                    <tr>
+                        <td id="t15"></td><td id="t16"></td><td id="t17"></td><td id="t18"></td>
+                        <td id="t19"></td><td id="t20"></td><td id="t21"></td>                        
+                    </tr>
+                    <tr>
+                        <td id="t22"></td><td id="t23"></td><td id="t24"></td><td id="t25"></td>
+                        <td id="t26"></td><td id="t27"></td><td id="t28"></td>
+                    </tr>
+                    <tr>
+                        <td id="t29"></td><td id="t30"></td><td id="t31"></td><td id="t32"></td>
+                        <td id="t33"></td><td id="t34"></td><td id="t35"></td>
+                    </tr>
+                </table>
+            </div> <!-- id = calendar -->
+
+            <!-- 오른쪽 영역 -->
+            <div class="col-lg-3 col-sm-12" id="emptyPage"></div>
+        </div> <!-- id = third -->
+    </div> <!-- class = container -->
+
+    <!-- 일지 작성하기를 클릭했을 때 나타나는 모달 -->
+    <div class="modal" id="dailyWrite">
+        제목 : <input type="text" id="title">
+        <br><br>
+
+        설명 :
+        <br>
+        <textarea class="modal-content" id="content"></textarea>
+        <br>
+
+        <label for="category">분류 :</label>
+        <select id="category" name="category">
+        <option value="todo" selected>할일</option>
+        <option value="meeting">회의</option>
+        <option value="idea">아이디어</option>
+        <option value="shopping">쇼핑목록</option>
+        </select>
+        <br><br>
+
+        <input type="button" value="저장" id="saveButton">
+        <input type="button" value="취소" id="cancelButton">
+    </div> <!-- id = dailyWrite -->
+
+    <div class="modal" id="dailyModify">
+        <div id="icon">
+            <i class="material-icons" id="editButton">mode_edit</i>
+            <i class="material-icons" id="deleteButton">delete</i>
+            <i class="material-icons" id="closeButton">close</i>
+        </div>  
+
+        제목 : <input type="text" id="modifyTitle" disabled>
+        <br><br>
+
+        설명 :
+        <br>
+        <textarea class="modal-content" id="modifyContent" disabled></textarea>
+        <br>
+
+        <label for="modifyCategory">분류 :</label>
+        <select id="modifyCategory" name="modifyCategory" disabled>
+        <option value="todo">할일</option>
+        <option value="meeting">회의</option>
+        <option value="idea">아이디어</option>
+        <option value="shopping">쇼핑목록</option>
+        </select>
+        <br><br>
+
+        <input type="button" value="저장" id="resaveButton">
+        <input type="button" value="취소" id="recancelButton">
+    </div> <!-- id = dailyModify -->
+
+    <script src="script.js"></script>
+</body>
+</html>
