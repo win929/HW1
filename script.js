@@ -176,6 +176,7 @@ document.getElementById("saveButton").addEventListener("click", function() {
 document.getElementById("cancelButton").addEventListener("click", function() {
     document.getElementById("title").value = "";
     document.getElementById("content").value = "";
+    document.getElementById("category").value = "todo";
     var modal = document.getElementById("dailyWrite");
     modal.style.display = "none";
 });
